@@ -28,7 +28,8 @@ const strangeArray = [
 function showList(array) {
   const container = document.getElementById("list");
   container.innerHTML = "";
-  // Más info de forEach => https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+   // Más info de forEach =>
+   // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
   array.forEach((element) => {
     const li = document.createElement("li");
     li.appendChild(document.createTextNode(element));
@@ -36,7 +37,13 @@ function showList(array) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  // Escribe tu solución aquí
-  // Sugerencia de cómo mostrar el array => showList(strangeArray);
+document.addEventListener("DOMContentLoaded", () => {
+  // Filtrar los elementos que sean del tipo String
+  const ArrayFiltrado = strangeArray.filter((strange) => typeof strange === 'string');
+  
+  // Ordenar alfabéticamente los elementos filtrados
+  const ArrayOrdenado = ArrayFiltrado.sort();
+  
+  // Mostrar el array filtrado y ordenado en el DOM
+  showList(ArrayOrdenado);
 });
